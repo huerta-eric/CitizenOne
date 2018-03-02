@@ -70,7 +70,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 String randomNumberOutput = Integer.toString(randomNumberMethodTest);
                 randomNumberMethodTestTextView.setText(randomNumberOutput);
 
-                int testInteger = 1;
+                int testInteger = 2;
 
 
             }
