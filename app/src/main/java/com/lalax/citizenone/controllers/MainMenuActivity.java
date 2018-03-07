@@ -58,14 +58,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
                 //String randomNumberOutput = Arrays.toString(problemSelectorList.toArray());
                 randomNumberMethodTestTextView.setText("" + randomProblemNumber);
-
-
-
             }
         });
-
-
     }
-
-
 }

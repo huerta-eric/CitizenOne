@@ -16,7 +16,7 @@ public class ProblemDatabase {
         userProblem = createProblemUsingSwitch(problemNumber);
     }
 
-    //method accessed by the ProbemCreator Class
+    //method accessed by the ProblemCreator Class
     public static Problem getTestProblem(){
 
         return userProblem;
@@ -31,7 +31,8 @@ public class ProblemDatabase {
 
             case 1:
                 /*First problem is created. Here all the values will be stored and will only be
-                created if the case is met.*/
+                created if the case is met. The first string passed is the question, the second
+                string passed is the CORRECT answer, the third string passed is INCORRECT*/
                 Problem problemOne = new Problem("1. What is the supreme law of the land?",
                         "The Constitution",
                         "The Bill of Rights");
@@ -200,188 +201,188 @@ public class ProblemDatabase {
                 Problem problemThirty = new Problem("30. If the President can no longer serve," +
                         " who becomes President?",
                         "the Vice President",
-                        "");
+                        "the previous President");
                 return problemThirty;
             case 31:
                 Problem problemThirtyOne = new Problem("31. If both the President and the" +
                         " Vice President can no longer serve, who becomes President?",
                         "the Speaker of the House",
-                        "");
+                        "the previous President");
                 return problemThirtyOne;
             case 32:
                 Problem problemThirtyTwo = new Problem("32. Who is the Commander in Chief of" +
                         " the military?",
                         "the President",
-                        "");
+                        "the Vice President");
                 return problemThirtyTwo;
             case 33:
                 Problem problemThirtyThree = new Problem("33. Who signs bills to become laws?",
                         "the President",
-                        "");
+                        "the states");
                 return problemThirtyThree;
             case 34:
                 Problem problemThirtyFour = new Problem("34. Who vetoes bills?",
                         "the President",
-                        "");
+                        "the electoral college");
                 return problemThirtyFour;
             case 35:
                 Problem problemThirtyFive = new Problem("35. What does the President’s Cabinet do?",
                         "advises the President",
-                        "");
+                        "protects the President from bodily harm");
                 return problemThirtyFive;
             case 36:
                 Problem problemThirtySix = new Problem("36. What are two Cabinet-level positions?",
                         "Secretary of Agriculture and Secretary of Commerce",
-                        "");
+                        "Secretary of Defence and Secretary of Nuclear Energy");
                 return problemThirtySix;
             case 37:
                 Problem problemThirtySeven = new Problem("37. What does the judicial branch do?",
                         "reviews laws",
-                        "");
+                        "vetoes laws");
                 return problemThirtySeven;
             case 38:
                 Problem problemThirtyEight = new Problem("38. What is the highest court in" +
                         " the United States?",
                         "the Supreme Court",
-                        "");
+                        "the First Court");
                 return problemThirtyEight;
             case 39:
                 Problem problemThirtyNine = new Problem("39. How many justices are on the" +
                         " Supreme Court?",
                         "nine",
-                        "");
+                        "seven");
                 return problemThirtyNine;
             case 40:
                 Problem problemForty = new Problem("40. Who is the Chief Justice of the" +
                         " United States now?",
                         "John Roberts",
-                        "");
+                        "Andrew Johnson");
                 return problemForty;
             case 41:
                 Problem problemFortyOne = new Problem("41. Under our Constitution, some powers" +
                         " belong to the federal government. What is one power of the federal" +
                         " government?",
                         "to declare war",
-                        "");
+                        "to review laws");
                 return problemFortyOne;
             case 42:
                 Problem problemFortyTwo = new Problem("42. Under our Constitution, some powers" +
                         " belong to the states. What is one power of the states?",
                         "provide schooling and education",
-                        "");
+                        "establish international trade agreements");
                 return problemFortyTwo;
             case 43:
                 Problem problemFortyThree = new Problem("43. Who is the Governor of your state" +
                         " now?",
                         "Greg Abbott",
-                        "");
+                        "Ted Cruz");
                 return problemFortyThree;
             case 44:
                 Problem problemFortyFour = new Problem("44. What is the capital of your state?*",
                         "Austin",
-                        "");
+                        "Houston");
                 return problemFortyFour;
             case 45:
                 Problem problemFortyFive = new Problem("45. What are the two major political" +
                         " parties in the United States?*",
                         "Democratic and Republican",
-                        "");
+                        "Green Party and Libertarian");
                 return problemFortyFive;
             case 46:
                 Problem problemFortySix = new Problem("46. What is the political party of the" +
                         " President now?",
                         "Republican",
-                        "");
+                        "Democratic");
                 return problemFortySix;
             case 47:
                 Problem problemFortySeven = new Problem("47. What is the name of the Speaker of" +
                         " the House of Representatives now?",
                         "Paul D. Ryan",
-                        "");
+                        "John McCain");
                 return problemFortySeven;
             case 48:
                 Problem problemFortyEight = new Problem("48. There are four amendments to the" +
                         " Constitution about who can vote. Describe one of them.",
                         "Citizens eighteen and older can vote",
-                        "");
+                        "Residents eighteen and older can vote");
                 return problemFortyEight;
             case 49:
                 Problem problemFortyNine = new Problem("49. What is one responsibility that is" +
                         " only for United States citizens?*",
                         "serve on a jury",
-                        "");
+                        "joining the military");
                 return problemFortyNine;
             case 50:
                 Problem problemFifty = new Problem("50. Name one right only for United States" +
                         " citizens.",
                         "run for federal office",
-                        "");
+                        "freedom of speech");
                 return problemFifty;
             case 51:
                 Problem problemFiftyOne = new Problem("51. What are two rights of everyone living" +
                         " in the United States?",
                         "freedom of speech and freedom of religion",
-                        "");
+                        "joining the military and freedom of religion");
                 return problemFiftyOne;
             case 52:
                 Problem problemFiftyTwo = new Problem("52. What do we show loyalty to when we say" +
                         " the Pledge of Allegiance?",
                         "the United States",
-                        "");
+                        "the world");
                 return problemFiftyTwo;
             case 53:
                 Problem problemFiftyThree = new Problem("53. What is one promise you make when" +
                         " you become a United States citizen?",
                         "Give up loyalty to other countries",
-                        "");
+                        "Give up loyalty to all countries");
                 return problemFiftyThree;
             case 54:
                 Problem problemFiftyFour = new Problem("54. How old do citizens have to be to" +
                         " vote for President?*",
                         "eighteen and older",
-                        "");
+                        "twenty one and older");
                 return problemFiftyFour;
             case 55:
                 Problem problemFiftyFive = new Problem("55. What are two ways that Americans can" +
                         " participate in their democracy?",
                         "vote and run for office",
-                        "");
+                        "vote in school elections and purchase american made products");
                 return problemFiftyFive;
             case 56:
                 Problem problemFiftySix = new Problem("56. When is the last day you can send in" +
                         " federal income tax forms?*",
                         "April 15",
-                        "");
+                        "March 15");
                 return problemFiftySix;
             case 57:
                 Problem problemFiftySeven = new Problem("57. When must all men register for the" +
                         " Selective Service?",
                         "at age eighteen",
-                        "");
+                        "at age twentyOne");
                 return problemFiftySeven;
             case 58:
                 Problem problemFiftyEight = new Problem("58. What is one reason colonists came" +
                         " to America?",
                         "religious freedom",
-                        "");
+                        "to fight native americans");
                 return problemFiftyEight;
             case 59:
                 Problem problemFiftyNine = new Problem("59. Who lived in America before the" +
                         " Europeans arrived?",
                         "Native Americans",
-                        "");
+                        "African Americans");
                 return problemFiftyNine;
             case 60:
                 Problem problemSixty = new Problem("60. What group of people was taken to America" +
                         " and sold as slaves?",
                         "Africans",
-                        "");
+                        "Europeans");
                 return problemSixty;
             case 61:
                 Problem problemSixtyOne = new Problem("61. Why did the colonists fight" +
                         " the British?",
                         "because of high taxes",
-                        "");
+                        "because they wanted to invade the British");
                 return problemSixtyOne;
             case 62:
                 Problem problemSixtyTwo = new Problem("62. Who wrote the Declaration of" +
