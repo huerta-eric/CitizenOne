@@ -8,69 +8,39 @@
     tools:context="com.lalax.citizenone.controllers.MainMenuActivity">
 
     <Button
-        android:text="Question"
+        android:text="Questionnaire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/problemTestButton"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@android:color/holo_purple"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="64dp" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/questionTextView"
-        android:textSize="18sp"
-        android:layout_marginTop="64dp"
+        android:id="@+id/questionnaireBtn"
+        android:layout_marginTop="120dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
-        android:text="Option A"
+    <Button
+        android:text="Progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/optionATextView"
-        android:textSize="14sp"
-        android:layout_marginTop="64dp"
-        app:layout_constraintTop_toBottomOf="@+id/questionTextView"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/progressBtn"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@+id/questionnaireBtn"
         android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
-        android:text="Option B"
+    <Button
+        android:text="Difficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/optionBTextView"
-        app:layout_constraintBottom_toTopOf="@+id/problemTestButton"
-        android:layout_marginBottom="32dp"
+        android:id="@+id/difficultyBtn"
+        app:layout_constraintTop_toBottomOf="@+id/progressBtn"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/optionATextView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/randomNumberMethodTestTextView"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/problemTestButton"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/optionBTextView" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp" />
 </android.support.constraint.ConstraintLayout>

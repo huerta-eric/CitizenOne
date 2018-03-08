@@ -16,7 +16,7 @@ public class ProblemCreator {
 
 
 
-    public ProblemCreator(int randomNumber){   // Had to add public to my constructor so MainMenuActivity could access it
+    public ProblemCreator(int randomNumber){   // Had to add public to my constructor so QuestionnaireActivity could access it
 
 
 
@@ -28,7 +28,7 @@ public class ProblemCreator {
         userProblem = firstObject.getTestProblem();
     }
 
-    //method accessed by the MainMenuActivity to retrieve problem Object
+    //method accessed by the QuestionnaireActivity to retrieve problem Object
     public static Problem getTestProblem(){
 
         return userProblem;

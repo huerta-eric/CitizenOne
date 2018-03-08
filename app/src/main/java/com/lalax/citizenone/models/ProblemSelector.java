@@ -7,7 +7,7 @@ import java.util.Random;
 
 /**
  * The purpose of this class is to create a list with 100 problem numbers. When this class is called
- * a random problem number will be removed from the list and returned to the MainMenuActivity.
+ * a random problem number will be removed from the list and returned to the QuestionnaireActivity.
  * The list will shrink until all problem numbers have been used.
  */
 
