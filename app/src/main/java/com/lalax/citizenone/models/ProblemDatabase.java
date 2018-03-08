@@ -388,82 +388,82 @@ public class ProblemDatabase {
                 Problem problemSixtyTwo = new Problem("62. Who wrote the Declaration of" +
                         " Independence?",
                         "Thomas Jefferson",
-                        "");
+                        "Abraham Lincoln");
                 return problemSixtyTwo;
             case 63:
                 Problem problemSixtyThree = new Problem("63. When was the Declaration of" +
                         " Independence adopted?",
                         "July 4, 1776",
-                        "");
+                        "June 4, 1776");
                 return problemSixtyThree;
             case 64:
                 Problem problemSixtyFour = new Problem("64. There were 13 original states." +
                         " Name three.",
                         "New Hampshire, Massachusetts, Rhode Island",
-                        "");
+                        "Virginia, Rhode Island, Iowa");
                 return problemSixtyFour;
             case 65:
                 Problem problemSixtyFive = new Problem("65. What happened at the Constitutional" +
                         " Convention?",
                         "The Constitution was written",
-                        "");
+                        "The colonies claimed independence");
                 return problemSixtyFive;
             case 66:
                 Problem problemSixtySix = new Problem("66. When was the Constitution written?",
                         "1787",
-                        "");
+                        "1776");
                 return problemSixtySix;
             case 67:
                 Problem problemSixtySeven = new Problem("67. The Federalist Papers supported the" +
                         " passage of the U.S. Constitution. Name one of the writers.",
                         "Alexander Hamilton",
-                        "");
+                        "Thomas Jefferson");
                 return problemSixtySeven;
             case 68:
                 Problem problemSixtyEight = new Problem("68. What is one thing Benjamin Franklin" +
                         " is famous for?",
                         "U.S. diplomat",
-                        "");
+                        "Second President of The United States");
                 return problemSixtyEight;
             case 69:
                 Problem problemSixtyNine = new Problem("69. Who is the “Father of Our Country”?",
                         "George Washington",
-                        "");
+                        "Thomas Jefferson");
                 return problemSixtyNine;
             case 70:
                 Problem problemSeventy = new Problem("70. Who was the first President?*",
                         "George Washington",
-                        "");
+                        "Benjamin Franklin");
                 return problemSeventy;
             case 71:
                 Problem problemSeventyOne = new Problem("71. What territory did the United States" +
                         " buy from France in 1803?",
-                        "the Louisiana Territory",
-                        "");
+                        "The Louisiana Territory",
+                        "The Alaska Territory");
                 return problemSeventyOne;
             case 72:
                 Problem problemSeventyTwo = new Problem("72. Name one war fought by the" +
                         " United States in the 1800s.",
                         "Mexican-American War",
-                        "");
+                        "World War I");
                 return problemSeventyTwo;
             case 73:
                 Problem problemSeventyThree = new Problem("73. Name the U.S. war between the" +
                         " North and the South.",
-                        "the Civil War",
-                        "");
+                        "The Civil War",
+                        "The American Revolution");
                 return problemSeventyThree;
             case 74:
                 Problem problemSeventyFour = new Problem("74. Name one problem that led to the" +
                         " Civil War.",
-                        "slavery",
-                        "");
+                        "Slavery",
+                        "Taxation without representation in Great Britain");
                 return problemSeventyFour;
             case 75:
                 Problem problemSeventyFive = new Problem("75. What was one important thing that" +
                         " Abraham Lincoln did?*",
-                        "freed the slaves",
-                        "");
+                        "Freed the slaves",
+                        "Initiated the civil rights movement");
                 return problemSeventyFive;
             case 76:
                 Problem problemSeventySix = new Problem("76. What did the Emancipation" +
@@ -473,138 +473,138 @@ public class ProblemDatabase {
                 return problemSeventySix;
             case 77:
                 Problem problemSeventySeven = new Problem("77. What did Susan B. Anthony do?",
-                        "fought for civil rights",
-                        "");
+                        "Fought for civil rights",
+                        "The wife of Thomas Jefferson");
                 return problemSeventySeven;
             case 78:
                 Problem problemSeventyEight = new Problem("78. Name one war fought by the" +
                         " United States in the 1900s.*",
                         "World War I",
-                        "");
+                        "Mexican-American War");
                 return problemSeventyEight;
             case 79:
                 Problem problemSeventyNine = new Problem("79. Who was President during" +
                         " World War I?",
                         "Woodrow Wilson",
-                        "");
+                        "Franklin Roosevelt");
                 return problemSeventyNine;
             case 80:
                 Problem problemEighty = new Problem("80. Who was President during the " +
                         "Great Depression and World War II?",
                         "Franklin Roosevelt",
-                        "");
+                        "Theodore Roosevelt");
                 return problemEighty;
             case 81:
                 Problem problemEightyOne = new Problem("81. Who did the United States fight in" +
                         " World War II?",
                         "Japan, Germany, and Italy",
-                        "");
+                        "Russia, North Korea, and China");
                 return problemEightyOne;
             case 82:
                 Problem problemEightyTwo = new Problem("82. Before he was President, Eisenhower" +
                         " was a general. What war was he in?",
                         "World War II",
-                        "");
+                        "Vietnam");
                 return problemEightyTwo;
             case 83:
                 Problem problemEightyThree = new Problem("83. During the Cold War, what was the" +
                         " main concern of the United States?",
                         "Communism",
-                        "");
+                        "Anarchism");
                 return problemEightyThree;
             case 84:
                 Problem problemEightyFour = new Problem("84. What movement tried to end racial" +
                         " discrimination?",
                         "civil rights movement",
-                        "");
+                        "gay rights movement");
                 return problemEightyFour;
             case 85:
                 Problem problemEightyFive = new Problem("85. What did Martin Luther King, Jr. do?*",
                         "fought for civil rights",
-                        "");
+                        "fought to end slavery");
                 return problemEightyFive;
             case 86:
                 Problem problemEightySix = new Problem("86. What major event happened on" +
                         " September 11, 2001, in the United States? ",
                         "Terrorists attacked the United States.",
-                        "");
+                        "The Russians conducted a cyber attack");
                 return problemEightySix;
             case 87:
                 Problem problemEightySeven = new Problem("87. Name one American Indian tribe in" +
                         " the United States.",
-                        "Navajo",
-                        "");
+                        "Navajo tribe",
+                        "Tarascan tribe");
                 return problemEightySeven;
             case 88:
                 Problem problemEightyEight = new Problem("88. Name one of the two longest rivers" +
                         " in the United States.",
                         "Missouri River",
-                        "");
+                        "Rio Grande");
                 return problemEightyEight;
             case 89:
                 Problem problemEightyNine = new Problem("89. What ocean is on the West Coast of" +
                         " the United States?",
                         "Pacific Ocean",
-                        "");
+                        "Atlantic Ocean");
                 return problemEightyNine;
             case 90:
                 Problem problemNinety = new Problem("90. What ocean is on the East Coast of " +
                         "the United States?",
                         "Atlantic Ocean",
-                        "");
+                        "Pacific Ocean");
                 return problemNinety;
             case 91:
                 Problem problemNinetyOne = new Problem("91. Name one U.S. territory.",
                         "Puerto Rico",
-                        "");
+                        "Hawaii");
                 return problemNinetyOne;
             case 92:
                 Problem problemNinetyTwo = new Problem("92. Name one state that borders Canada.",
                         "Washington",
-                        "");
+                        "Oregon");
                 return problemNinetyTwo;
             case 93:
                 Problem problemNinetyThree = new Problem("93. Name one state that borders Mexico.",
                         "Texas",
-                        "");
+                        "Louisiana");
                 return problemNinetyThree;
             case 94:
                 Problem problemNinetyFour = new Problem("94. What is the capital of the" +
                         " United States?*",
                         "Washington, D.C.",
-                        "");
+                        "Washington State");
                 return problemNinetyFour;
             case 95:
                 Problem problemNinetyFive = new Problem("95. Where is the Statue of Liberty?*",
                         "New York Harbor",
-                        "");
+                        "New Jersey");
                 return problemNinetyFive;
             case 96:
                 Problem problemNinetySix = new Problem("96. Why does the flag have 13 stripes?",
                         "because there were 13 original colonies",
-                        "");
+                        "because there were 13 founding fathers");
                 return problemNinetySix;
             case 97:
                 Problem problemNinetySeven = new Problem("97. Why does the flag have 50 stars?*",
                         "because there are 50 states",
-                        "");
+                        "because there were 50 battles for independence");
                 return problemNinetySeven;
             case 98:
                 Problem problemNinetyEight = new Problem("98. What is the name of the national" +
                         " anthem?",
                         "The Star-Spangled Banner",
-                        "");
+                        "The Pledge of Allegiance");
                 return problemNinetyEight;
             case 99:
                 Problem problemNinetyNine = new Problem("99. When do we celebrate" +
                         " Independence Day?*",
                         "July 4",
-                        "");
+                        "June 4");
                 return problemNinetyNine;
             case 100:
                 Problem problemOneHundred = new Problem("100. Name two national U.S. holidays.",
                         "Martin Luther King, Jr. Day and Presidents’ Day",
-                        "");
+                        "Christmas Day and Easter");
                 return problemOneHundred;
             default:
                 Problem defaultProblem = new Problem("", "", "");
