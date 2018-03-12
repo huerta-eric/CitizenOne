@@ -469,7 +469,7 @@ public class ProblemDatabase {
                 Problem problemSeventySix = new Problem("76. What did the Emancipation" +
                         " Proclamation do?",
                         "freed the slaves",
-                        "");
+                        "Gave the right to vote to women");
                 return problemSeventySix;
             case 77:
                 Problem problemSeventySeven = new Problem("77. What did Susan B. Anthony do?",

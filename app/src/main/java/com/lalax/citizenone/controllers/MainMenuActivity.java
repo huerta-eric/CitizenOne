@@ -24,7 +24,8 @@ public class MainMenuActivity extends AppCompatActivity {
         //Created the button which will open DifficultyActivity. Haven't created activity yet
         Button difficultyBtn = (Button) findViewById(R.id.difficultyBtn);
 
-        //Method launched when problemTestButton is clicked
+
+        //Method launched when questionnaireBtn is clicked
         questionnaireBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,5 +34,8 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
+
     }
+
+
 }

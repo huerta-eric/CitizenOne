@@ -13,51 +13,49 @@ import com.lalax.citizenone.models.ProblemSelector;
 import citizenone.lalax.com.citizenone.R;
 
 public class QuestionnaireActivity extends AppCompatActivity {
-
+    private Button aOptionButton;
+    private Button bOptionButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
 
-        //Created the button which would trigger the question being displayed in the TextView
-        Button problemTestButton = (Button) findViewById(R.id.problemTestButton);
+        /*Created the button which will trigger the creation of the next question being displayed
+          in the TextView*/
+        Button nextQuestionBtn = (Button) findViewById(R.id.nextQuestionBtn);
 
 
-        //Method launched when problemTestButton is clicked
-        problemTestButton.setOnClickListener(new View.OnClickListener() {
+        //Method launched when nextQuestionBtn is clicked
+        nextQuestionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //This is where the question will be displayed
+                //Created the text box where the question will be displayed
                 TextView questionTextView = (TextView) findViewById(R.id.questionTextView);
-                //Where option A is displayed
-                TextView optionATextView = (TextView) findViewById(R.id.optionATextView);
-                //Where option B is displayed
-                TextView optionBTextView = (TextView) findViewById(R.id.optionBTextView);
-
-                //Where randomNumberMethodTestTextView is displayed
-                TextView randomNumberMethodTestTextView = (TextView) findViewById(R.id.randomNumberMethodTestTextView);
-
-                //Object created which will return randomly ordered questions from 1-100
+//-------------------------------------------------------------------------------------------------
+                //Created the buttons which will change text upon clicking of the nextQuestionBtn
+                aOptionButton = (Button) findViewById(R.id.aOptionButton);
+                bOptionButton = (Button) findViewById(R.id.bOptionButton);
+//-------------------------------------------------------------------------------------------------
+                /* Created object which will return randomly ordered questions from 1-100 using a
+                 list from the ProblemSelector Class*/
                 ProblemSelector problemNumber = new ProblemSelector();
                 int randomProblemNumber = problemNumber.getRandomProblemNumber();
-
-                //Creating Object in charge of accessing the database with questions
+//-------------------------------------------------------------------------------------------------
+                //Created Object in charge of accessing the database with questions
                 ProblemCreator problemTest = new ProblemCreator(randomProblemNumber);
-
-                //Object storing problem
+//-------------------------------------------------------------------------------------------------
+                //Created object storing problem
                 Problem userProblem = ProblemCreator.getTestProblem();
-
+//-------------------------------------------------------------------------------------------------
                 //Question is sent to the questionTextView
                 questionTextView.setText(userProblem.getQuestion());
-                //Option A is sent to the optionATextView
-                optionATextView.setText(userProblem.getCorrectAnswer());
-                //Option B is sent to the optionBTextView
-                optionBTextView.setText(userProblem.getIncorrectAnswer());
+                // Button text is changed
+                aOptionButton.setText(" A. " + userProblem.getCorrectAnswer() + " ");
+                bOptionButton.setText(" B. " + userProblem.getIncorrectAnswer() + " ");
 
 
-                //String randomNumberOutput = Arrays.toString(problemSelectorList.toArray());
-                randomNumberMethodTestTextView.setText("" + randomProblemNumber);
+
             }
         });
     }
