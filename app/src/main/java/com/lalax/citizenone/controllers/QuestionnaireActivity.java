@@ -26,7 +26,6 @@ public class QuestionnaireActivity extends AppCompatActivity {
           in the TextView*/
         Button nextQuestionBtn = (Button) findViewById(R.id.nextQuestionBtn);
 
-
         // Method launched when nextQuestionBtn is clicked
         nextQuestionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
