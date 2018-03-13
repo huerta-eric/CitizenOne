@@ -13,7 +13,7 @@ import com.lalax.citizenone.models.ProblemSelector;
 import java.util.Random;
 
 import citizenone.lalax.com.citizenone.R;
-//
+
 public class QuestionnaireActivity extends AppCompatActivity {
     private Button aOptionButton;
     private Button bOptionButton;
