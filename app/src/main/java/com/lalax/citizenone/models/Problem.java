@@ -7,14 +7,18 @@ package com.lalax.citizenone.models;
 public class Problem {
     private String question;
     private String correctAnswer;
-    private String incorrectAnswer;
+    private String incorrectAnswerOne;
+    private String incorrectAnswerTwo;
+    private String incorrectAnswerThree;
 
     //Questions attribute is passed from ProblemDatabase method. Other attributes need to be
     //passed through the constructor
-    Problem(String ques, String corrAns, String incoAns){
+    Problem(String ques, String corrAns, String incoAnsOne, String incoAnsTwo, String incoAnsThree){
         question = ques;
         correctAnswer = corrAns;
-        incorrectAnswer = incoAns;
+        incorrectAnswerOne = incoAnsOne;
+        incorrectAnswerTwo = incoAnsTwo;
+        incorrectAnswerThree = incoAnsThree;
     }
 
     //question is fetched by ProblemDatabase
@@ -28,9 +32,19 @@ public class Problem {
         return correctAnswer;
     }
 
-    public String getIncorrectAnswer() {
+    public String getIncorrectAnswerOne() {
 
-        return incorrectAnswer;
+        return incorrectAnswerOne;
+    }
+
+    public String getIncorrectAnswerTwo() {
+
+        return incorrectAnswerTwo;
+    }
+
+    public String getIncorrectAnswerThree() {
+
+        return incorrectAnswerThree;
     }
 
 
