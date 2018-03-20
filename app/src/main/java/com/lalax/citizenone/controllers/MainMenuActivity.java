@@ -35,6 +35,16 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
+        //Method launched when questionnaireBtn is clicked
+        progressBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent startIntent = new Intent(getApplicationContext(), ProgressActivity.class);
+                startActivity(startIntent);
+            }
+        });
+
     }
 
 

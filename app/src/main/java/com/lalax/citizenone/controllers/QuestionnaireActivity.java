@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +26,18 @@ public class QuestionnaireActivity extends AppCompatActivity {
     private Button aOptionButton;
     private Button bOptionButton;
     private Button cOptionButton;
+    private Button nextQuestionButton;
+
+    private ProgressBar progressBar;
 
     private int answeredCorrectly = 0;
     private int currentQuestion = 0;
+
+    private Problem userProblem;
+
+    //UPDATE finished button
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +46,8 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
         // Created the text box where the score will be displayed
         scoreTextView = (TextView) findViewById(R.id.scoreTextView);
+        // Created progress bar that will fill up as the user goes through the 100 questions
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         // Created the text box where the question will be displayed
         questionTextView = (TextView) findViewById(R.id.questionTextView);
 
@@ -43,135 +55,148 @@ public class QuestionnaireActivity extends AppCompatActivity {
         aOptionButton = (Button) findViewById(R.id.aOptionButton);
         bOptionButton = (Button) findViewById(R.id.bOptionButton);
         cOptionButton = (Button) findViewById(R.id.cOptionButton);
+        nextQuestionButton = (Button) findViewById(R.id.nextQuestionButton);
+        //finishedButton = (Button) findViewById(R.id.finishedButton);
 
-        /*Created the button which will trigger the creation of the next question being displayed
-          in the TextView*/
-        Button nextQuestionBtn = (Button) findViewById(R.id.nextQuestionBtn);
+        updateQuestion();
 
-        // Method launched when nextQuestionBtn is clicked
-        nextQuestionBtn.setOnClickListener(new View.OnClickListener() {
+        aOptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    /* If button A is clicked a pop-up stating whether the
+                    *  "correct" or "wrong" answer is clicked will appear.
+                    *  The user's score will be updated.*/
+                if (aOptionButton.getText() == userProblem.getCorrectAnswer()) {
+                    Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                    aOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
+                    answeredCorrectly = answeredCorrectly + 1;
+                    updateScore(answeredCorrectly);
 
-                /* Set button's background to purple. I did this to revert the color back to purple
-                * because it's set to either green or red whenever the user selects an option in
-                * the previous problem*/
-                aOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
-                bOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
-                cOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
-//-------------------------------------------------------------------------------------------------
-                /* Created object which will return randomly ordered questions from 1-100 using a
-                 list from the ProblemSelector Class. This object will be created on click and
-                 destroyed after nextQuestionBtn is clicked again*/
-                ProblemSelector problemNumber = new ProblemSelector();
-                int randomProblemNumber = problemNumber.getRandomProblemNumber();
-//-------------------------------------------------------------------------------------------------
-                /*COME BACK AND SEE WHY NEED THIS OBJECT Created Object in charge of accessing
-                * the database with questions*/
-                ProblemCreator problemTest = new ProblemCreator(randomProblemNumber);
-//-------------------------------------------------------------------------------------------------
-                //Created object storing problem
-                final Problem userProblem = ProblemCreator.getTestProblem();
-//-------------------------------------------------------------------------------------------------
-                //Question is sent to the questionTextView
-                questionTextView.setText(userProblem.getQuestion());
-//-------------------------------------------------------------------------------------------------
-                /*A list is created and assigned the strings from the userProblem object. These
-                * strings are in order*/
-                List<String> optionsListOne =
-                        Arrays.asList(userProblem.getCorrectAnswer(),
-                                userProblem.getIncorrectAnswerOne(),
-                                userProblem.getIncorrectAnswerTwo());
+                    /* This method is triggered once the user has selected an answer. Buttons
+                    * are enabled in the updateQuestion method
+                    * once the nextQuestionButton is pressed.*/
+                    disableButtons();
 
-                /*The ordered optionsListOne list is sent to the assignButtonText method.
-                 * A list with the strings in random order is returned and assigned to randomList */
-                List<String> randomList = new ArrayList<String>(assignButtonText(optionsListOne));
+                } else {
+                   Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                    aOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
+                    updateScore(answeredCorrectly);
 
-                // Each button's text is assigned a string from the randomList list
-                aOptionButton.setText(randomList.get(0));
-                bOptionButton.setText(randomList.get(1));
-                cOptionButton.setText(randomList.get(2));
-
-
-                aOptionButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                            /* If button A is clicked the button's background will change to either
-                            *red, for incorrect, or green, for correct. A pop-up stating whether the
-                             *  "correct" or "wrong" answer is clicked will appear.
-                             *  The user's score will be updated.*/
-                        if (aOptionButton.getText() == userProblem.getCorrectAnswer()) {
-                            aOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
-                            Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
-
-                            answeredCorrectly = answeredCorrectly + 1;
-                            currentQuestion = currentQuestion + 1;
-                            updateScore(answeredCorrectly);
-                        } else {
-                            aOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
-                            Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
-
-                            currentQuestion = currentQuestion + 1;
-                            updateScore(answeredCorrectly);
-                        }
-
-                    }
-                });
-
-                bOptionButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                            /* If button B is clicked the button's background will change to either
-                            *red, for incorrect, or green, for correct. A pop-up stating whether the
-                             *  "correct" or "wrong" answer is clicked will appear.
-                             *  The user's score will be updated.*/
-                        if (bOptionButton.getText() == userProblem.getCorrectAnswer()) {
-                            bOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
-                            Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
-
-                            answeredCorrectly = answeredCorrectly + 1;
-                            currentQuestion = currentQuestion + 1;
-                            updateScore(answeredCorrectly);
-                        } else {
-                            bOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
-                            Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
-
-                            currentQuestion = currentQuestion + 1;
-                            updateScore(answeredCorrectly);
-                        }
-                    }
-                });
-
-                cOptionButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                            /* If button C is clicked the button's background will change to either
-                            *red, for incorrect, or green, for correct. A pop-up stating whether the
-                             *  "correct" or "wrong" answer is clicked will appear.
-                             *  The user's score will be updated.*/
-                        if (cOptionButton.getText() == userProblem.getCorrectAnswer()) {
-                            cOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
-                            Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
-
-                            answeredCorrectly = answeredCorrectly + 1;
-                            currentQuestion = currentQuestion + 1;
-                            updateScore(answeredCorrectly);
-                        } else {
-                            cOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
-                            Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
-
-                            currentQuestion = currentQuestion + 1;
-                            updateScore(answeredCorrectly);
-                        }
-                    }
-                });
+                    disableButtons();
+                }
 
             }
         });
 
+        bOptionButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    /* If button B is clicked a pop-up stating whether the
+                    *  "correct" or "wrong" answer is clicked will appear.
+                    *  The user's score will be updated.*/
+                if (bOptionButton.getText() == userProblem.getCorrectAnswer()) {
+                    Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                    bOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
+                    answeredCorrectly = answeredCorrectly + 1;
+                    updateScore(answeredCorrectly);
+
+                    disableButtons();
+
+                } else {
+                    Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                    bOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
+                    updateScore(answeredCorrectly);
+
+                    disableButtons();
+                }
+            }
+                      });
+
+        cOptionButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    /* If button C is clicked a pop-up stating whether the
+                     *  "correct" or "wrong" answer is clicked will appear.
+                     *  The user's score will be updated.*/
+                if (cOptionButton.getText() == userProblem.getCorrectAnswer()) {
+                    Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                    cOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
+                    answeredCorrectly = answeredCorrectly + 1;
+                    updateScore(answeredCorrectly);
+
+                    disableButtons();
+
+                } else {
+                    Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                    cOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
+                    updateScore(answeredCorrectly);
+
+                    disableButtons();
+                }
+                    }
+        });
+
+        nextQuestionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                updateQuestion();
+            }
+        });
+
+
+
+            }
+
+    private void updateQuestion(){
+
+                /* Created object which will return randomly ordered questions from 1-100 using a
+                 list from the ProblemSelector Class. This object will be created on click and
+                 destroyed after nextQuestionBtn is clicked again*/
+        ProblemSelector problemNumber = new ProblemSelector();
+        int randomProblemNumber = problemNumber.getRandomProblemNumber();
+//-------------------------------------------------------------------------------------------------
+        /* Set button's background to purple. I did this to revert the color back to purple
+                * because it's set to either green or red whenever the user selects an option in
+                * the previous problem*/
+        aOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
+        bOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
+        cOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
+//-------------------------------------------------------------------------------------------------
+        //Re-enable buttons
+        aOptionButton.setEnabled(true);
+        bOptionButton.setEnabled(true);
+        cOptionButton.setEnabled(true);
+//-------------------------------------------------------------------------------------------------
+                /*COME BACK AND SEE WHY NEED THIS OBJECT Created Object in charge of accessing
+                * the database with questions*/
+        ProblemCreator problemTest = new ProblemCreator(randomProblemNumber);
+//-------------------------------------------------------------------------------------------------
+        //Created object storing problem
+        userProblem = ProblemCreator.getProblem();
+//-------------------------------------------------------------------------------------------------
+        //Question is sent to the questionTextView
+        questionTextView.setText(userProblem.getQuestion());
+//-------------------------------------------------------------------------------------------------
+                /*A list is created and assigned the strings from the userProblem object. These
+                * strings are in order*/
+        List<String> orderedOptionsList =
+                Arrays.asList(userProblem.getCorrectAnswer(),
+                        userProblem.getIncorrectAnswerOne(),
+                        userProblem.getIncorrectAnswerTwo());
+
+                /*The orderedOptionsList list is sent to the randomOrderedList method.
+                 * A list with the strings in random order is returned and assigned to randomList */
+        List<String> randomList = new ArrayList<String>(randomOrderedList(orderedOptionsList));
+
+        // Each button's text is assigned a string from the randomList list
+        aOptionButton.setText(randomList.get(0));
+        bOptionButton.setText(randomList.get(1));
+        cOptionButton.setText(randomList.get(2));
+
     }
 
-    public List<String> assignButtonText(List<String> primeList){
+    private List<String> randomOrderedList(List<String> primeList){
 
         int listSize = primeList.size();
 
@@ -192,7 +217,16 @@ public class QuestionnaireActivity extends AppCompatActivity {
     }
 
     private void updateScore(int point){
+        currentQuestion = currentQuestion + 1;
+        progressBar.setProgress(currentQuestion);
         scoreTextView.setText("" + answeredCorrectly + " / " + currentQuestion);
+    }
+
+    /* This method turns off all option buttons*/
+    private void disableButtons(){
+        aOptionButton.setEnabled(false);
+        bOptionButton.setEnabled(false);
+        cOptionButton.setEnabled(false);
     }
 
     }

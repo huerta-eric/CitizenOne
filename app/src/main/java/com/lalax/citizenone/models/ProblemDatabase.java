@@ -17,7 +17,7 @@ public class ProblemDatabase {
     }
 
     //method accessed by the ProblemCreator Class
-    public static Problem getTestProblem(){
+    public static Problem getProblem(){
 
         return userProblem;
     }
@@ -25,14 +25,14 @@ public class ProblemDatabase {
     /*Depending on the integer value passed to the method a new Problem will be instantiated. This
      way the app only creates a problem questions when it's needed by the user instead of creating
      all objects at the start of the program*/
-    public Problem createProblemUsingSwitch(int problemNumber) {
+    private Problem createProblemUsingSwitch(int problemNumber) {
 
         switch (problemNumber) {
 
             case 1:
                 /*First problem is created. Here all the values will be stored and will only be
                 created if the case is met. The first string passed is the question, the second
-                string passed is the CORRECT answer, the third string passed is INCORRECT*/
+                string passed is the CORRECT answer, the rest of the strings passed are INCORRECT*/
                 Problem problemOne = new Problem("1. What is the supreme law of the land?",
                         "The Constitution",
                         "The Bill of Rights",
@@ -198,21 +198,21 @@ public class ProblemDatabase {
                         " how many years?",
                         "two",
                         "six",
-                        " ",
+                        "four",
                         " ");
                 return problemTwentyTwo;
             case 23:   // This question depends on the location of the user
                 Problem problemTwentyThree = new Problem("23. Name your U.S. Representative.",
                         "Congressman Pete Olson",
                         "John Ratcliffe",
-                        " ",
-                        " ");
+                        "Robert Krauss",
+                        "Samuel Johnson");
                 return problemTwentyThree;
             case 24:
                 Problem problemTwentyFour = new Problem("24. Who does a U.S. Senator represent?",
                         "all people of the state",
-                        "all the people of their particular district",
-                        " ",
+                        "all the people of their county",
+                        "all people in America",
                         " ");
                 return problemTwentyFour;
             case 25:
@@ -220,7 +220,7 @@ public class ProblemDatabase {
                         " Representatives than other states?",
                         "Because of the state’s population",
                         "Because of the state's land area",
-                        " ",
+                        "Because of the state's economic importance",
                         " ");
                 return problemTwentyFive;
             case 26:
@@ -228,7 +228,7 @@ public class ProblemDatabase {
                         " years?",
                         "four",
                         "six",
-                        " ",
+                        "two",
                         " ");
                 return problemTwentySix;
             case 27:
@@ -236,7 +236,7 @@ public class ProblemDatabase {
                         " President?*",
                         "November",
                         "December",
-                        " ",
+                        "October",
                         " ");
                 return problemTwentySeven;
             case 28:
@@ -244,7 +244,7 @@ public class ProblemDatabase {
                         " of the United States now?*",
                         "Donald J. Trump",
                         "Michael R. Pence",
-                        " ",
+                        "Hillary Clinton",
                         " ");
                 return problemTwentyEight;
             case 29:
@@ -252,7 +252,7 @@ public class ProblemDatabase {
                         " Vice President of the United States now?",
                         "Michael R. Pence",
                         "Paul D. Ryan",
-                        " ",
+                        "Donald J. Trump",
                         " ");
                 return problemTwentyNine;
             case 30:
@@ -260,7 +260,7 @@ public class ProblemDatabase {
                         " who becomes President?",
                         "the Vice President",
                         "the previous President",
-                        " ",
+                        "a newly elected President",
                         " ");
                 return problemThirty;
             case 31:
@@ -276,42 +276,42 @@ public class ProblemDatabase {
                         " the military?",
                         "the President",
                         "the Vice President",
-                        " ",
+                        "The Public",
                         " ");
                 return problemThirtyTwo;
             case 33:
                 Problem problemThirtyThree = new Problem("33. Who signs bills to become laws?",
                         "the President",
-                        "the states",
-                        " ",
+                        "the States",
+                        "the Supreme Court",
                         " ");
                 return problemThirtyThree;
             case 34:
                 Problem problemThirtyFour = new Problem("34. Who vetoes bills?",
                         "the President",
-                        "the electoral college",
-                        " ",
+                        "the Electoral College",
+                        "the House of Representatives",
                         " ");
                 return problemThirtyFour;
             case 35:
                 Problem problemThirtyFive = new Problem("35. What does the President’s Cabinet do?",
                         "advises the President",
                         "protects the President from bodily harm",
-                        " ",
+                        "advises the American people",
                         " ");
                 return problemThirtyFive;
             case 36:
                 Problem problemThirtySix = new Problem("36. What are two Cabinet-level positions?",
                         "Secretary of Agriculture and Secretary of Commerce",
                         "Secretary of Defence and Secretary of Nuclear Energy",
-                        " ",
+                        "Secretary of Homeland Security and Secretary of Engineers",
                         " ");
                 return problemThirtySix;
             case 37:
                 Problem problemThirtySeven = new Problem("37. What does the judicial branch do?",
                         "reviews laws",
                         "vetoes laws",
-                        " ",
+                        "declares war",
                         " ");
                 return problemThirtySeven;
             case 38:
@@ -319,7 +319,7 @@ public class ProblemDatabase {
                         " the United States?",
                         "the Supreme Court",
                         "the First Court",
-                        " ",
+                        "the State Court",
                         " ");
                 return problemThirtyEight;
             case 39:
@@ -327,7 +327,7 @@ public class ProblemDatabase {
                         " Supreme Court?",
                         "nine",
                         "seven",
-                        " ",
+                        "five",
                         " ");
                 return problemThirtyNine;
             case 40:
@@ -335,7 +335,7 @@ public class ProblemDatabase {
                         " United States now?",
                         "John Roberts",
                         "Andrew Johnson",
-                        " ",
+                        "Jeremy Alexander",
                         " ");
                 return problemForty;
             case 41:
@@ -343,16 +343,16 @@ public class ProblemDatabase {
                         " belong to the federal government. What is one power of the federal" +
                         " government?",
                         "to declare war",
-                        "to review laws",
-                        " ",
+                        "to approve state budgets",
+                        "to make state laws",
                         " ");
                 return problemFortyOne;
             case 42:
                 Problem problemFortyTwo = new Problem("42. Under our Constitution, some powers" +
                         " belong to the states. What is one power of the states?",
                         "provide schooling and education",
-                        "establish international trade agreements",
-                        " ",
+                        "To grant patents and copyrights",
+                        "To establish post offices and post roads",
                         " ");
                 return problemFortyTwo;
             case 43:
@@ -360,14 +360,14 @@ public class ProblemDatabase {
                         " now?",
                         "Greg Abbott",
                         "Ted Cruz",
-                        " ",
+                        "George Bush",
                         " ");
                 return problemFortyThree;
             case 44:
                 Problem problemFortyFour = new Problem("44. What is the capital of your state?*",
                         "Austin",
                         "Houston",
-                        " ",
+                        "San Antonio",
                         " ");
                 return problemFortyFour;
             case 45:
@@ -375,7 +375,7 @@ public class ProblemDatabase {
                         " parties in the United States?*",
                         "Democratic and Republican",
                         "Green Party and Libertarian",
-                        " ",
+                        "Independent and Working Families Party",
                         " ");
                 return problemFortyFive;
             case 46:
@@ -383,7 +383,7 @@ public class ProblemDatabase {
                         " President now?",
                         "Republican",
                         "Democratic",
-                        " ",
+                        "Libertarian",
                         " ");
                 return problemFortySix;
             case 47:
@@ -391,7 +391,7 @@ public class ProblemDatabase {
                         " the House of Representatives now?",
                         "Paul D. Ryan",
                         "John McCain",
-                        " ",
+                        "Jeff Sessions",
                         " ");
                 return problemFortySeven;
             case 48:
@@ -399,7 +399,7 @@ public class ProblemDatabase {
                         " Constitution about who can vote. Describe one of them.",
                         "Citizens eighteen and older can vote",
                         "Residents eighteen and older can vote",
-                        " ",
+                        "Only women can vote",
                         " ");
                 return problemFortyEight;
             case 49:
@@ -407,7 +407,7 @@ public class ProblemDatabase {
                         " only for United States citizens?*",
                         "serve on a jury",
                         "joining the military",
-                        " ",
+                        "getting a driver's license",
                         " ");
                 return problemFortyNine;
             case 50:
@@ -415,7 +415,7 @@ public class ProblemDatabase {
                         " citizens.",
                         "run for federal office",
                         "freedom of speech",
-                        " ",
+                        "joining the military",
                         " ");
                 return problemFifty;
             case 51:
