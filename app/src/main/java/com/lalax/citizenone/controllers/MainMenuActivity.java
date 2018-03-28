@@ -19,10 +19,10 @@ public class MainMenuActivity extends AppCompatActivity {
         //Created the button which will open QuestionnaireActivity
         ImageButton questionnaireBtn = (ImageButton) findViewById(R.id.questionnaireBtn);
 
-        //Created the button which will open ProgressActivity. Haven't created activity yet
+        //Created the button which will open ProgressActivity.
         ImageButton progressBtn = (ImageButton) findViewById(R.id.progressBtn);
 
-        //Created the button which will open DifficultyActivity. Haven't created activity yet
+        //Created the button which will open DifficultyActivity.
         ImageButton difficultyBtn = (ImageButton) findViewById(R.id.difficultyBtn);
 
 
@@ -42,6 +42,16 @@ public class MainMenuActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent startIntent = new Intent(getApplicationContext(), ProgressActivity.class);
+                startActivity(startIntent);
+            }
+        });
+
+        //Method launched when difficultyBtn is clicked
+        difficultyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent startIntent = new Intent(getApplicationContext(), DifficultyActivity.class);
                 startActivity(startIntent);
             }
         });

@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.lalax.citizenone.models.MyApp;
+
 import citizenone.lalax.com.citizenone.R;
 
 public class ProgressActivity extends AppCompatActivity {
@@ -19,9 +21,11 @@ public class ProgressActivity extends AppCompatActivity {
         // Created the text box where the score will be displayed
         progressScoreTextView = (TextView) findViewById(R.id.progressScoreTextView);
 
+        MyApp appState = ((MyApp)getApplicationContext());
+        String state = appState.getScore();
 
 
-        progressScoreTextView.setText("app Class Test int: " );
+        progressScoreTextView.setText(state);
 
     }
 

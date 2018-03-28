@@ -8,6 +8,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lalax.citizenone.models.MyApp;
 import com.lalax.citizenone.models.Problem;
 import com.lalax.citizenone.models.ProblemCreator;
 import com.lalax.citizenone.models.ProblemSelector;
@@ -21,15 +22,24 @@ import citizenone.lalax.com.citizenone.R;
 
 public class QuestionnaireActivity extends AppCompatActivity {
 
+    //TextView where current score is displayed
     private TextView scoreTextView;
+
+    //TextView where the current question is displayed
     private TextView questionTextView;
+
+    //Multiple Choice Buttons
     private Button aOptionButton;
     private Button bOptionButton;
     private Button cOptionButton;
     private Button dOptionButton;
+
+    //Button to navigate to next Question
     private Button nextQuestionButton;
 
+    // Shows current progress out of 100 questions
     private ProgressBar progressBar;
+
 
     private int answeredCorrectly = 0;
     private int currentQuestion = 0;
@@ -45,9 +55,6 @@ public class QuestionnaireActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
 
-
-
-
         // Created the text box where the score will be displayed
         scoreTextView = (TextView) findViewById(R.id.scoreTextView);
         // Created progress bar that will fill up as the user goes through the 100 questions
@@ -61,7 +68,6 @@ public class QuestionnaireActivity extends AppCompatActivity {
         cOptionButton = (Button) findViewById(R.id.cOptionButton);
         dOptionButton = (Button) findViewById(R.id.dOptionButton);
         nextQuestionButton = (Button) findViewById(R.id.nextQuestionButton);
-        //finishedButton = (Button) findViewById(R.id.finishedButton);
 
         updateQuestion();
 
@@ -165,6 +171,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
             }
         });
 
+        // When clicked questions, multiple choice answers, and score are updated
         nextQuestionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -202,8 +209,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
         cOptionButton.setEnabled(true);
         dOptionButton.setEnabled(true);
 //-------------------------------------------------------------------------------------------------
-                /*COME BACK AND SEE WHY NEED THIS OBJECT Created Object in charge of accessing
-                * the database with questions*/
+                /*UPDATE DESCRIPTION*/
         ProblemCreator problemTest = new ProblemCreator(randomProblemNumber);
 //-------------------------------------------------------------------------------------------------
         //Created object storing problem
@@ -254,8 +260,17 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
     private void updateScore(int point){
         currentQuestion = currentQuestion + 1;
+
+        //Updates progressBar
         progressBar.setProgress(currentQuestion);
+
+        //displays Correct answers compared to total questions answered
         scoreTextView.setText("" + answeredCorrectly + " / " + currentQuestion);
+
+        /*Creates global myApp object then sets the global score to Correct answers compared to
+        * total questions answered*/
+        MyApp appScore = ((MyApp)getApplicationContext());
+        appScore.setScore("" + answeredCorrectly + " / " + currentQuestion);
 
     }
 
