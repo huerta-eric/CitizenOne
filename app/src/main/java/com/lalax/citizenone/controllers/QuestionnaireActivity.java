@@ -26,6 +26,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
     private Button aOptionButton;
     private Button bOptionButton;
     private Button cOptionButton;
+    private Button dOptionButton;
     private Button nextQuestionButton;
 
     private ProgressBar progressBar;
@@ -35,7 +36,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
     private Problem userProblem;
 
-    //UPDATE finished button
+
 
 
 
@@ -43,6 +44,9 @@ public class QuestionnaireActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
+
+
+
 
         // Created the text box where the score will be displayed
         scoreTextView = (TextView) findViewById(R.id.scoreTextView);
@@ -55,6 +59,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
         aOptionButton = (Button) findViewById(R.id.aOptionButton);
         bOptionButton = (Button) findViewById(R.id.bOptionButton);
         cOptionButton = (Button) findViewById(R.id.cOptionButton);
+        dOptionButton = (Button) findViewById(R.id.dOptionButton);
         nextQuestionButton = (Button) findViewById(R.id.nextQuestionButton);
         //finishedButton = (Button) findViewById(R.id.finishedButton);
 
@@ -75,14 +80,14 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     /* This method is triggered once the user has selected an answer. Buttons
                     * are enabled in the updateQuestion method
                     * once the nextQuestionButton is pressed.*/
-                    disableButtons();
+                    enableAndDisableButtons();
 
                 } else {
                    Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
                     aOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
                     updateScore(answeredCorrectly);
 
-                    disableButtons();
+                    enableAndDisableButtons();
                 }
 
             }
@@ -100,14 +105,14 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     answeredCorrectly = answeredCorrectly + 1;
                     updateScore(answeredCorrectly);
 
-                    disableButtons();
+                    enableAndDisableButtons();
 
                 } else {
                     Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
                     bOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
                     updateScore(answeredCorrectly);
 
-                    disableButtons();
+                    enableAndDisableButtons();
                 }
             }
                       });
@@ -124,16 +129,40 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     answeredCorrectly = answeredCorrectly + 1;
                     updateScore(answeredCorrectly);
 
-                    disableButtons();
+                    enableAndDisableButtons();
 
                 } else {
                     Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
                     cOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
                     updateScore(answeredCorrectly);
 
-                    disableButtons();
+                    enableAndDisableButtons();
                 }
                     }
+        });
+
+        dOptionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    /* If button D is clicked a pop-up stating whether the
+                     *  "correct" or "wrong" answer is clicked will appear.
+                     *  The user's score will be updated.*/
+                if (dOptionButton.getText() == userProblem.getCorrectAnswer()) {
+                    Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                    dOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
+                    answeredCorrectly = answeredCorrectly + 1;
+                    updateScore(answeredCorrectly);
+
+                    enableAndDisableButtons();
+
+                } else {
+                    Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                    dOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
+                    updateScore(answeredCorrectly);
+
+                    enableAndDisableButtons();
+                }
+            }
         });
 
         nextQuestionButton.setOnClickListener(new View.OnClickListener() {
@@ -162,11 +191,16 @@ public class QuestionnaireActivity extends AppCompatActivity {
         aOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
         bOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
         cOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
+        dOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
+//-------------------------------------------------------------------------------------------------
+       // disables button used to go to the next question
+        nextQuestionButton.setEnabled(false);
 //-------------------------------------------------------------------------------------------------
         //Re-enable buttons
         aOptionButton.setEnabled(true);
         bOptionButton.setEnabled(true);
         cOptionButton.setEnabled(true);
+        dOptionButton.setEnabled(true);
 //-------------------------------------------------------------------------------------------------
                 /*COME BACK AND SEE WHY NEED THIS OBJECT Created Object in charge of accessing
                 * the database with questions*/
@@ -183,7 +217,8 @@ public class QuestionnaireActivity extends AppCompatActivity {
         List<String> orderedOptionsList =
                 Arrays.asList(userProblem.getCorrectAnswer(),
                         userProblem.getIncorrectAnswerOne(),
-                        userProblem.getIncorrectAnswerTwo());
+                        userProblem.getIncorrectAnswerTwo(),
+                        userProblem.getIncorrectAnswerThree());
 
                 /*The orderedOptionsList list is sent to the randomOrderedList method.
                  * A list with the strings in random order is returned and assigned to randomList */
@@ -193,6 +228,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
         aOptionButton.setText(randomList.get(0));
         bOptionButton.setText(randomList.get(1));
         cOptionButton.setText(randomList.get(2));
+        dOptionButton.setText(randomList.get(3));
 
     }
 
@@ -220,14 +256,20 @@ public class QuestionnaireActivity extends AppCompatActivity {
         currentQuestion = currentQuestion + 1;
         progressBar.setProgress(currentQuestion);
         scoreTextView.setText("" + answeredCorrectly + " / " + currentQuestion);
+
     }
 
-    /* This method turns off all option buttons*/
-    private void disableButtons(){
+    /* This method turns off all option buttons and turns on the button to go to the next question*/
+    private void enableAndDisableButtons(){
+        nextQuestionButton.setEnabled(true);
+
         aOptionButton.setEnabled(false);
         bOptionButton.setEnabled(false);
         cOptionButton.setEnabled(false);
+        dOptionButton.setEnabled(false);
     }
+
+
 
     }
 

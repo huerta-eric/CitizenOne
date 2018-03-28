@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import citizenone.lalax.com.citizenone.R;
 
@@ -15,14 +15,15 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+
         //Created the button which will open QuestionnaireActivity
-        Button questionnaireBtn = (Button) findViewById(R.id.questionnaireBtn);
+        ImageButton questionnaireBtn = (ImageButton) findViewById(R.id.questionnaireBtn);
 
         //Created the button which will open ProgressActivity. Haven't created activity yet
-        Button progressBtn = (Button) findViewById(R.id.progressBtn);
+        ImageButton progressBtn = (ImageButton) findViewById(R.id.progressBtn);
 
         //Created the button which will open DifficultyActivity. Haven't created activity yet
-        Button difficultyBtn = (Button) findViewById(R.id.difficultyBtn);
+        ImageButton difficultyBtn = (ImageButton) findViewById(R.id.difficultyBtn);
 
 
         //Method launched when questionnaireBtn is clicked

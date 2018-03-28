@@ -15,10 +15,10 @@ public class Problem {
     //passed through the constructor
     Problem(String ques, String corrAns, String incoAnsOne, String incoAnsTwo, String incoAnsThree){
         question = ques;
-        correctAnswer = corrAns;
-        incorrectAnswerOne = incoAnsOne;
-        incorrectAnswerTwo = incoAnsTwo;
-        incorrectAnswerThree = incoAnsThree;
+        correctAnswer = " " + corrAns  + " ";
+        incorrectAnswerOne = " " + incoAnsOne + " ";
+        incorrectAnswerTwo = " " + incoAnsTwo + " ";
+        incorrectAnswerThree = " " + incoAnsThree + " ";
     }
 
     //question is fetched by ProblemDatabase

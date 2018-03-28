@@ -20,9 +20,10 @@ public class ProgressActivity extends AppCompatActivity {
         progressScoreTextView = (TextView) findViewById(R.id.progressScoreTextView);
 
 
+
+        progressScoreTextView.setText("app Class Test int: " );
+
     }
 
-    public void setProgressScore(String questionnaireScore){
-        progressScore = questionnaireScore;
-    }
+
 }
