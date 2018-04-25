@@ -11,14 +11,14 @@ public class Problem {
     private String incorrectAnswerTwo;
     private String incorrectAnswerThree;
 
-    //Questions attribute is passed from ProblemDatabase method. Other attributes need to be
+    //Questions argument is passed from ProblemDatabase method. Other arguments need to be
     //passed through the constructor
-    Problem(String ques, String corrAns, String incoAnsOne, String incoAnsTwo, String incoAnsThree){
-        question = ques;
+    Problem(String q, String corrAns, String incorrectOne, String incorrectTwo, String incorrectThree){
+        question = q;
         correctAnswer = " " + corrAns  + " ";
-        incorrectAnswerOne = " " + incoAnsOne + " ";
-        incorrectAnswerTwo = " " + incoAnsTwo + " ";
-        incorrectAnswerThree = " " + incoAnsThree + " ";
+        incorrectAnswerOne = " " + incorrectOne + " ";
+        incorrectAnswerTwo = " " + incorrectTwo + " ";
+        incorrectAnswerThree = " " + incorrectThree + " ";
     }
 
     //question is fetched by ProblemDatabase

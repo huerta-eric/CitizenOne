@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.lalax.citizenone.models.MyApp;
 import com.lalax.citizenone.models.Problem;
-import com.lalax.citizenone.models.ProblemCreator;
+import com.lalax.citizenone.models.ProblemDatabase;
 import com.lalax.citizenone.models.ProblemSelector;
 
 import java.util.ArrayList;
@@ -55,19 +55,20 @@ public class QuestionnaireActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
 
-        // Created the text box where the score will be displayed
-        scoreTextView = (TextView) findViewById(R.id.scoreTextView);
-        // Created progress bar that will fill up as the user goes through the 100 questions
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         // Created the text box where the question will be displayed
-        questionTextView = (TextView) findViewById(R.id.questionTextView);
+        questionTextView = (TextView) findViewById(R.id.question_text_view);
+        // Created the text box where the score will be displayed
+        scoreTextView = (TextView) findViewById(R.id.score_text_view);
+
+        // Created progress bar that will fill up as the user goes through the 100 questions
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
         // Created the buttons which will change text upon clicking of the nextQuestionBtn
-        aOptionButton = (Button) findViewById(R.id.aOptionButton);
-        bOptionButton = (Button) findViewById(R.id.bOptionButton);
-        cOptionButton = (Button) findViewById(R.id.cOptionButton);
-        dOptionButton = (Button) findViewById(R.id.dOptionButton);
-        nextQuestionButton = (Button) findViewById(R.id.nextQuestionButton);
+        aOptionButton = (Button) findViewById(R.id.a_option_button);
+        bOptionButton = (Button) findViewById(R.id.b_option_button);
+        cOptionButton = (Button) findViewById(R.id.c_option_button);
+        dOptionButton = (Button) findViewById(R.id.d_option_button);
+        nextQuestionButton = (Button) findViewById(R.id.next_question_button);
 
         updateQuestion();
 
@@ -79,7 +80,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     *  The user's score will be updated.*/
                 if (aOptionButton.getText() == userProblem.getCorrectAnswer()) {
                     Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
-                    aOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
+                    aOptionButton.setBackgroundColor(getResources().getColor(R.color.pressed_button_correct));
                     answeredCorrectly = answeredCorrectly + 1;
                     updateScore(answeredCorrectly);
 
@@ -90,7 +91,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
                 } else {
                    Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
-                    aOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
+                    aOptionButton.setBackgroundColor(getResources().getColor(R.color.pressed_button_incorrect));
                     updateScore(answeredCorrectly);
 
                     enableAndDisableButtons();
@@ -107,7 +108,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     *  The user's score will be updated.*/
                 if (bOptionButton.getText() == userProblem.getCorrectAnswer()) {
                     Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
-                    bOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
+                    bOptionButton.setBackgroundColor(getResources().getColor(R.color.pressed_button_correct));
                     answeredCorrectly = answeredCorrectly + 1;
                     updateScore(answeredCorrectly);
 
@@ -115,7 +116,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
-                    bOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
+                    bOptionButton.setBackgroundColor(getResources().getColor(R.color.pressed_button_incorrect));
                     updateScore(answeredCorrectly);
 
                     enableAndDisableButtons();
@@ -131,7 +132,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
                      *  The user's score will be updated.*/
                 if (cOptionButton.getText() == userProblem.getCorrectAnswer()) {
                     Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
-                    cOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
+                    cOptionButton.setBackgroundColor(getResources().getColor(R.color.pressed_button_correct));
                     answeredCorrectly = answeredCorrectly + 1;
                     updateScore(answeredCorrectly);
 
@@ -139,7 +140,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
-                    cOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
+                    cOptionButton.setBackgroundColor(getResources().getColor(R.color.pressed_button_incorrect));
                     updateScore(answeredCorrectly);
 
                     enableAndDisableButtons();
@@ -155,7 +156,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
                      *  The user's score will be updated.*/
                 if (dOptionButton.getText() == userProblem.getCorrectAnswer()) {
                     Toast.makeText(QuestionnaireActivity.this, "correct", Toast.LENGTH_SHORT).show();
-                    dOptionButton.setBackgroundColor(getResources().getColor(R.color.green));
+                    dOptionButton.setBackgroundColor(getResources().getColor(R.color.pressed_button_correct));
                     answeredCorrectly = answeredCorrectly + 1;
                     updateScore(answeredCorrectly);
 
@@ -163,7 +164,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(QuestionnaireActivity.this, "wrong", Toast.LENGTH_SHORT).show();
-                    dOptionButton.setBackgroundColor(getResources().getColor(R.color.red));
+                    dOptionButton.setBackgroundColor(getResources().getColor(R.color.pressed_button_incorrect));
                     updateScore(answeredCorrectly);
 
                     enableAndDisableButtons();
@@ -195,10 +196,10 @@ public class QuestionnaireActivity extends AppCompatActivity {
         /* Set button's background to purple. I did this to revert the color back to purple
                 * because it's set to either green or red whenever the user selects an option in
                 * the previous problem*/
-        aOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
-        bOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
-        cOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
-        dOptionButton.setBackgroundColor(getResources().getColor(R.color.purplish));
+        aOptionButton.setBackgroundColor(getResources().getColor(R.color.unpressed_button));
+        bOptionButton.setBackgroundColor(getResources().getColor(R.color.unpressed_button));
+        cOptionButton.setBackgroundColor(getResources().getColor(R.color.unpressed_button));
+        dOptionButton.setBackgroundColor(getResources().getColor(R.color.unpressed_button));
 //-------------------------------------------------------------------------------------------------
        // disables button used to go to the next question
         nextQuestionButton.setEnabled(false);
@@ -209,11 +210,11 @@ public class QuestionnaireActivity extends AppCompatActivity {
         cOptionButton.setEnabled(true);
         dOptionButton.setEnabled(true);
 //-------------------------------------------------------------------------------------------------
-                /*UPDATE DESCRIPTION*/
-        ProblemCreator problemTest = new ProblemCreator(randomProblemNumber);
+                /*Object which holds current problem questions and answers*/
+        ProblemDatabase currentProblem = new ProblemDatabase(randomProblemNumber);
 //-------------------------------------------------------------------------------------------------
         //Created object storing problem
-        userProblem = ProblemCreator.getProblem();
+        userProblem = currentProblem.getProblem();
 //-------------------------------------------------------------------------------------------------
         //Question is sent to the questionTextView
         questionTextView.setText(userProblem.getQuestion());

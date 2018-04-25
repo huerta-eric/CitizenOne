@@ -17,13 +17,13 @@ public class MainMenuActivity extends AppCompatActivity {
 
 
         //Created the button which will open QuestionnaireActivity
-        ImageButton questionnaireBtn = (ImageButton) findViewById(R.id.questionnaireBtn);
+        ImageButton questionnaireBtn = (ImageButton) findViewById(R.id.questionnaire_btn);
 
         //Created the button which will open ProgressActivity.
-        ImageButton progressBtn = (ImageButton) findViewById(R.id.progressBtn);
+        ImageButton progressBtn = (ImageButton) findViewById(R.id.progress_btn);
 
         //Created the button which will open DifficultyActivity.
-        ImageButton difficultyBtn = (ImageButton) findViewById(R.id.difficultyBtn);
+        ImageButton difficultyBtn = (ImageButton) findViewById(R.id.difficulty_btn);
 
 
         //Method launched when questionnaireBtn is clicked

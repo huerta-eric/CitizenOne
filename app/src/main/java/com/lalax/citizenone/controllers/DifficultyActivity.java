@@ -16,7 +16,7 @@ public class DifficultyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_difficulty);
 
         // Created the text box where the score will be displayed
-        difficultyScoreTextView = (TextView) findViewById(R.id.difficultyScoreTextView);
+        difficultyScoreTextView = (TextView) findViewById(R.id.difficulty_score_text_view);
 
 
 

@@ -9,7 +9,7 @@ public class ProblemDatabase {
     private int problemNumber;
     private static Problem userProblem;
 
-    ProblemDatabase(int probNum) {
+    public ProblemDatabase(int probNum) {
         problemNumber = probNum;
 
         //The problem which the user requested is saved in this object
@@ -203,7 +203,7 @@ public class ProblemDatabase {
                 return problemTwentyTwo;
             case 23:   // This question depends on the location of the user
                 Problem problemTwentyThree = new Problem("23. Name your U.S. Representative.",
-                        "Congressman Pete Olson",
+                        "Pete Olson",
                         "John Ratcliffe",
                         "Robert Krauss",
                         "Samuel Johnson");
